@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 
-import {} from "./PostStyles";
+import { Form, Title, ImageInput, Upload } from "./PostStyles";
+import AreYouSure from "./AreYouSure";
 
 function PostCard() {
   const [file, setFile] = useState<any>();
   const [title, setTitle] = useState<any>();
+  const [sure, setSure] = useState<boolean>(false);
   const onFileChange = (e: any) => {
     setFile(e.target.files[0]);
   };
   const onUpload = (e: any) => {
-    e.preventDefault();
+    // e.preventDefault();
     const formData = new FormData();
     formData.append("img", file, file.name);
     formData.append("title", title.title);
@@ -22,6 +23,7 @@ function PostCard() {
 
     //https://marks-scheduling.herokuapp.com/
     //${process.env.API_URL}
+
     axiosWithAuth()
       .post(`http://localhost:8000/api/schedule`, formData, {
         headers: { "Content-Type": "multipart/form-date" },
@@ -33,16 +35,38 @@ function PostCard() {
         console.log(err.message);
       });
   };
+
+  const handleUpload = (e: any) => {
+    e.preventDefault();
+    setSure(!sure);
+  };
+
   const onTitleChange = (e: any) => {
     const { name, value } = e.target;
     setTitle({ ...title, [name]: value });
   };
   return (
-    <form>
-      <input type="text" name="title" onChange={onTitleChange} />
-      <input type="file" name="img" onChange={onFileChange} />
-      <button onClick={onUpload}>Upload</button>
-    </form>
+    <Form>
+      <Title
+        type="text"
+        name="title"
+        onChange={onTitleChange}
+        placeholder="Title of img"
+      />
+      <ImageInput
+        type="file"
+        name="img"
+        id="imgUpload"
+        title="Select a file"
+        onChange={onFileChange}
+      />
+      {sure ? (
+        <AreYouSure upload={onUpload} setSure={setSure} sure={sure} />
+      ) : (
+        <></>
+      )}
+      <Upload onClick={handleUpload}>Upload</Upload>
+    </Form>
   );
 }
 
