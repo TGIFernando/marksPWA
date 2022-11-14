@@ -9,9 +9,13 @@ function DeletePopUp(props: any) {
   const handleNo = (e: any) => {
     props.setError(false);
   };
+
+  //https://marks-scheduling.herokuapp.com/
+  //http://localhost:8000/
+
   const handleYes = (e: any) => {
     axiosWithAuth()
-      .delete(`http://localhost:8000/api/schedule/${props.id}`)
+      .delete(`https://marks-scheduling.herokuapp.com/api/schedule/${props.id}`)
       .then((res) => {
         setDel(true);
       })

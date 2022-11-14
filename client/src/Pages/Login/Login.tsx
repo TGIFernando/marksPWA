@@ -24,12 +24,13 @@ function Login() {
 
   //https://marks-scheduling.herokuapp.com/
   //${process.env.API_URL}
+  //http://localhost:8000/
 
   const onSubmit = (e: any) => {
     e.preventDefault();
     console.log(process.env.API_URL);
     axios
-      .post(`http://localhost:8000/api/auth/login/`, form)
+      .post(`https://marks-scheduling.herokuapp.com/api/auth/login/`, form)
       .then((res) => {
         setMyUser(res.data);
         localStorage.setItem("token", res.data.token);

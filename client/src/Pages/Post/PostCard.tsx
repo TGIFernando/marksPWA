@@ -23,9 +23,10 @@ function PostCard() {
 
     //https://marks-scheduling.herokuapp.com/
     //${process.env.API_URL}
+    //http://localhost:8000/
 
     axiosWithAuth()
-      .post(`http://localhost:8000/api/schedule`, formData, {
+      .post(`https://marks-scheduling.herokuapp.com/api/schedule`, formData, {
         headers: { "Content-Type": "multipart/form-date" },
       })
       .then((res) => {

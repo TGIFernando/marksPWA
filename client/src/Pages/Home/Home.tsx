@@ -14,10 +14,11 @@ function Home() {
 
   //https://marks-scheduling.herokuapp.com/
   //${process.env.API_URL}
+  //http://localhost:8000/
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`http://localhost:8000/api/schedule`)
+      .get(`https://marks-scheduling.herokuapp.com/api/schedule`)
       .then((res) => {
         setPics(res.data);
         setError(false);
