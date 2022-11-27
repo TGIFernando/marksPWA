@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import { useParams } from "react-router-dom";
+import env from "ts-react-dotenv";
 
 import SchedulePortrait from "./SchedulePortrait";
 import Oops from "../Oops";
@@ -22,7 +23,7 @@ function Schedule() {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://marks-scheduling.herokuapp.com/api/schedule/${id}`)
+      .get(`${env.API_URL}api/schedule/${id}`)
       .then((res) => {
         setImg(res.data);
         setError(false);

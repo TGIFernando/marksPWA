@@ -16,15 +16,10 @@ function Home() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  //https://marks-scheduling.herokuapp.com/
-  //${process.env.API_URL}
-  //http://localhost:8000/
-
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://marks-scheduling.herokuapp.com/api/schedule`)
+      .get(`${env.API_URL}api/schedule`)
       .then((res) => {
-        console.log(env.API_URL);
         setPics(res.data);
         setError(false);
         setLoading(false);

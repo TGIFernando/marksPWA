@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
+import env from "ts-react-dotenv";
 
 import { Form, Title, ImageInput, Upload } from "./PostStyles";
 import AreYouSure from "./AreYouSure";
@@ -11,22 +12,12 @@ function PostCard() {
   const onFileChange = (e: any) => {
     setFile(e.target.files[0]);
   };
-  const onUpload = (e: any) => {
-    // e.preventDefault();
+  const onUpload = async (e: any) => {
     const formData = new FormData();
     formData.append("img", file, file.name);
     formData.append("title", title.title);
-    // console.log(title);
-    // for (const value of formData.values()) {
-    //   console.log(value);
-    // }
-
-    //https://marks-scheduling.herokuapp.com/
-    //${process.env.API_URL}
-    //http://localhost:8000/
-
-    axiosWithAuth()
-      .post(`https://marks-scheduling.herokuapp.com/api/schedule`, formData, {
+    await axiosWithAuth()
+      .post(`${env.API_URL}api/schedule`, formData, {
         headers: { "Content-Type": "multipart/form-date" },
       })
       .then((res) => {
