@@ -3,12 +3,14 @@ import { useRecoilValue } from "recoil";
 import { userState } from "../../Atoms/UserState";
 import Burger from "../../Nav/Burger";
 import DeletePopUp from "../DeletePopUp/DeletePopUp";
+
+import Loading from "../../Context/Loading";
+
 import {
   MainBody,
   Dates,
   ScheduleContainer,
   Background,
-  Loading,
   Heading,
 } from "./ScheduleStyles";
 
@@ -42,9 +44,7 @@ function SchedulePortrait(props: any) {
               <Dates>{props.date}</Dates>
             </MainBody>
           ) : (
-            <div>
-              <Loading>Loading...</Loading>
-            </div>
+            <Loading />
           )}
           {admin ? (
             <>
