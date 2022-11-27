@@ -6,11 +6,13 @@ import { schedulePicturesState } from "../../Atoms/PictureState";
 
 import HomePortrait from "./HomePortrait";
 import Oops from "../Oops";
+import Loading from "../../Context/Loading";
 
 function Home() {
   const token = localStorage.getItem("token");
   const [pics, setPics] = useRecoilState(schedulePicturesState);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   //https://marks-scheduling.herokuapp.com/
   //${process.env.API_URL}
@@ -22,6 +24,7 @@ function Home() {
       .then((res) => {
         setPics(res.data);
         setError(false);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -32,6 +35,8 @@ function Home() {
   return token ? (
     error ? (
       <Oops />
+    ) : loading ? (
+      <Loading />
     ) : (
       <HomePortrait pics={pics} />
     )
