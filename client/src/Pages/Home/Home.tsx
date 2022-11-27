@@ -4,6 +4,8 @@ import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import { useRecoilState } from "recoil";
 import { schedulePicturesState } from "../../Atoms/PictureState";
 
+import env from "ts-react-dotenv";
+
 import HomePortrait from "./HomePortrait";
 import Oops from "../Oops";
 import Loading from "../../Context/Loading";
@@ -22,6 +24,7 @@ function Home() {
     axiosWithAuth()
       .get(`https://marks-scheduling.herokuapp.com/api/schedule`)
       .then((res) => {
+        console.log(env.API_URL);
         setPics(res.data);
         setError(false);
         setLoading(false);

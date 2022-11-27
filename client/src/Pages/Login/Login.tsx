@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { userState } from "../../Atoms/UserState";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
+import env from "ts-react-dotenv";
 
 import { Background, Text, TextContainer, Button, Wrong } from "./LoginStyles";
 
@@ -30,7 +31,7 @@ function Login() {
     e.preventDefault();
     console.log(process.env.API_URL);
     axios
-      .post(`https://marks-scheduling.herokuapp.com/api/auth/login/`, form)
+      .post(`${env.API_URL}api/auth/login/`, form)
       .then((res) => {
         setMyUser(res.data);
         localStorage.setItem("token", res.data.token);
