@@ -25,7 +25,6 @@ function Login() {
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-    console.log(process.env.API_URL);
     axios
       .post(`${env.API_URL}api/auth/login/`, form)
       .then((res) => {

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import env from "ts-react-dotenv";
 
 import SchedulePortrait from "./SchedulePortrait";
-import Oops from "../Oops";
+import Oops from "../../Context/Oops";
 
 function Schedule() {
   const token = localStorage.getItem("token");
@@ -16,10 +16,6 @@ function Schedule() {
   }/${current.getDate()}/${current.getFullYear()}`;
   const [img, setImg] = useState(undefined);
   const [error, setError] = useState(false);
-
-  //https://marks-scheduling.herokuapp.com/
-  //${process.env.API_URL}
-  //http://localhost:8000/
 
   useEffect(() => {
     axiosWithAuth()

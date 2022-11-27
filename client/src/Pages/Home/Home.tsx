@@ -7,7 +7,7 @@ import { schedulePicturesState } from "../../Atoms/PictureState";
 import env from "ts-react-dotenv";
 
 import HomePortrait from "./HomePortrait";
-import Oops from "../Oops";
+import Oops from "../../Context/Oops";
 import Loading from "../../Context/Loading";
 
 function Home() {
