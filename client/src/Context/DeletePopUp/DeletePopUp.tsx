@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { MainDiv, ButtonDiv } from "./DeletePopIpStyles";
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
+import env from "ts-react-dotenv";
 
 function DeletePopUp(props: any) {
   const [del, setDel] = useState<boolean>(false);
@@ -10,13 +11,10 @@ function DeletePopUp(props: any) {
     props.setError(false);
   };
 
-  //https://marks-scheduling.herokuapp.com/
-  //http://localhost:8000/
-
-  const handleYes = (e: any) => {
-    axiosWithAuth()
-      .delete(`https://marks-scheduling.herokuapp.com/api/schedule/${props.id}`)
-      .then((res) => {
+  const handleYes = async (e: any) => {
+    await axiosWithAuth()
+      .delete(`${env.API_URL}api/schedule/${props.id}`)
+      .then(() => {
         setDel(true);
       })
       .catch((err) => {

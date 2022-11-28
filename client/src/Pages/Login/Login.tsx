@@ -23,13 +23,8 @@ function Login() {
     setForm({ ...form, [name]: value });
   };
 
-  //https://marks-scheduling.herokuapp.com/
-  //${process.env.API_URL}
-  //http://localhost:8000/
-
   const onSubmit = (e: any) => {
     e.preventDefault();
-    console.log(process.env.API_URL);
     axios
       .post(`${env.API_URL}api/auth/login/`, form)
       .then((res) => {

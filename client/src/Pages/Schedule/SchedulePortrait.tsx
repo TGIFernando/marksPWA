@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { userState } from "../../Atoms/UserState";
 import Burger from "../../Nav/Burger";
-import DeletePopUp from "../DeletePopUp/DeletePopUp";
+import DeletePopUp from "../../Context/DeletePopUp/DeletePopUp";
 
 import Loading from "../../Context/Loading";
 

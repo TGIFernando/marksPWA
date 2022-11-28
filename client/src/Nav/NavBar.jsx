@@ -40,8 +40,6 @@ function NavBar({ open, setOpen }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [myUser, setMyUser] = useRecoilState(userState);
 
-  console.log(myUser);
-
   const logOut = (e) => {
     e.preventDefault();
     setMyUser([]);

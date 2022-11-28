@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import { useParams } from "react-router-dom";
+import env from "ts-react-dotenv";
 
 import SchedulePortrait from "./SchedulePortrait";
-import Oops from "../Oops";
+import Oops from "../../Context/Oops";
 
 function Schedule() {
   const token = localStorage.getItem("token");
@@ -16,13 +17,9 @@ function Schedule() {
   const [img, setImg] = useState(undefined);
   const [error, setError] = useState(false);
 
-  //https://marks-scheduling.herokuapp.com/
-  //${process.env.API_URL}
-  //http://localhost:8000/
-
   useEffect(() => {
     axiosWithAuth()
-      .get(`https://marks-scheduling.herokuapp.com/api/schedule/${id}`)
+      .get(`${env.API_URL}api/schedule/${id}`)
       .then((res) => {
         setImg(res.data);
         setError(false);

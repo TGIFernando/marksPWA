@@ -1,5 +1,9 @@
 import React from "react";
-import { Background, PicBackground, Loading } from "./Schedule/ScheduleStyles";
+import {
+  Background,
+  PicBackground,
+  Loading,
+} from "../Pages/Schedule/ScheduleStyles";
 
 function Oops() {
   return (

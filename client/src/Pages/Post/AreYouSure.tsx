@@ -10,9 +10,9 @@ function AreYouSure(props: any) {
     props.setSure(!props.sure);
   };
 
-  const handleYes = (e: any) => {
+  const handleYes = async (e: any) => {
     e.preventDefault();
-    props.upload();
+    await props.upload();
     setUpload(!upload);
   };
 

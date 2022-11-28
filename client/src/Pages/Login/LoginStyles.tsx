@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Background = styled.form`
   /* background-color: #ffead0; */
   background-color: #0d060f;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

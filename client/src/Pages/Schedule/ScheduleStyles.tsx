@@ -7,7 +7,7 @@ export const Background = styled.div`
 
 export const PicBackground = styled.div`
   background-color: #0d060f;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

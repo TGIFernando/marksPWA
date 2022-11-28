@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Background = styled.div`
   background-color: #0d060f;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 `;
 

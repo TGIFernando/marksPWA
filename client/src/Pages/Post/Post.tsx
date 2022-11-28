@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Background } from "./PostStyles";
 import Burger from "../../Nav/Burger";
 import PostCard from "./PostCard";
