@@ -67,6 +67,11 @@ function NavBar({ open, setOpen }) {
             Download Resume
           </Link> */}
           <LI onClick={onClick}>
+            <Link to="/todo" replace>
+              To Do's
+            </Link>
+          </LI>
+          <LI onClick={onClick}>
             <Link to="/post" replace>
               Post
             </Link>

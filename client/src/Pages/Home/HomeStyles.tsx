@@ -11,7 +11,7 @@ export const MainDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: space-around;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 `;
 
