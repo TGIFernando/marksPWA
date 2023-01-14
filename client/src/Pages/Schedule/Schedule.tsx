@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
-import { useParams } from "react-router-dom";
 import env from "ts-react-dotenv";
 
 import SchedulePortrait from "./SchedulePortrait";

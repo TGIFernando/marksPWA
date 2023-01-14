@@ -94,11 +94,11 @@ function NavBar({ open, setOpen }) {
               Home
             </Link>
           </LI>
-          <LI onClick={onClick}>
+          {/* <LI onClick={onClick}>
             <Link to="/todo" replace>
               To Do's
             </Link>
-          </LI>
+          </LI> */}
         </OL>
       </nav>
     )
