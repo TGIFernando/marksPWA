@@ -24,7 +24,7 @@ const OL = styled.ol`
 
 const LI = styled.li`
   padding: 10px;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: white;
   text-align: center;
   a {
@@ -69,6 +69,11 @@ function NavBar({ open, setOpen }) {
           <LI onClick={onClick}>
             <Link to="/todoadmin" replace>
               To Do's Admin
+            </Link>
+          </LI>
+          <LI onClick={onClick}>
+            <Link to="/tasks" replace>
+              Tasks
             </Link>
           </LI>
           <LI onClick={onClick}>
