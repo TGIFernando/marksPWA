@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PageTemp from "../../Context/PageTemp";
 import Oops from "../../Context/Oops";
 import TaskCard from "./TaskCard";
+import Toggle from "../../Context/Toggle";
 
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import env from "ts-react-dotenv";
@@ -49,6 +50,10 @@ function Tasks() {
       });
   }, []);
 
+  const handleClick = () => {
+    setChoice(!choice);
+  };
+
   return (
     <PageTemp
       page={
@@ -56,10 +61,10 @@ function Tasks() {
           <Oops />
         ) : (
           <>
-            <button onClick={() => setChoice(!choice)}>Switch</button>
+            <Toggle toggled={choice} onClick={handleClick} />
             {choice ? (
               <>
-                {opening.map((item) => {
+                {closing.map((item) => {
                   return (
                     <TaskCard
                       key={item.id}
@@ -74,7 +79,7 @@ function Tasks() {
               </>
             ) : (
               <>
-                {closing.map((item) => {
+                {opening.map((item) => {
                   return (
                     <TaskCard
                       key={item.id}

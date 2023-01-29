@@ -9,7 +9,7 @@ export const List = styled.ol`
 
 export const ListItem = styled.li`
   font-size: 2rem;
-  color: black;
+  color: #201d1e;
 `;
 
 export const Task = styled.h1`
@@ -23,8 +23,9 @@ export const Initials = styled.h2`
 export const Card = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: grey;
+  justify-content: space-between;
+  background-color: #e7dfe8;
   border-radius: 2rem;
   max-width: 50%;
+  padding: 1rem 1.5rem;
 `;
