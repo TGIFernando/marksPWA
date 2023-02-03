@@ -24,7 +24,7 @@ const OL = styled.ol`
 
 const LI = styled.li`
   padding: 10px;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: white;
   text-align: center;
   a {
@@ -66,16 +66,21 @@ function NavBar({ open, setOpen }) {
           {/* <Link to="/Resume.PDF" target="_blank" download>
             Download Resume
           </Link> */}
-          <LI onClick={onClick}>
+          {/* <LI onClick={onClick}>
             <Link to="/todoadmin" replace>
               To Do's Admin
             </Link>
-          </LI>
+          </LI> */}
           <LI onClick={onClick}>
-            <Link to="/todo" replace>
-              To Do's
+            <Link to="/tasks" replace>
+              Tasks
             </Link>
           </LI>
+          {/* <LI onClick={onClick}>
+              <Link to="/todo" replace>
+                To Do's
+              </Link>
+            </LI> */}
           <LI onClick={onClick}>
             <Link to="/post" replace>
               Post
@@ -94,6 +99,11 @@ function NavBar({ open, setOpen }) {
               Home
             </Link>
           </LI>
+          {/* <LI onClick={onClick}>
+            <Link to="/tasks" replace>
+              Tasks
+            </Link>
+          </LI> */}
           {/* <LI onClick={onClick}>
             <Link to="/todo" replace>
               To Do's

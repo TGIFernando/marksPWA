@@ -1,4 +1,4 @@
-import React from "react";
+import Burger from "../Nav/Burger";
 import {
   Background,
   PicBackground,

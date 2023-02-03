@@ -34,7 +34,7 @@ const TodoList: React.FC = () => {
   }, []);
 
   const toggleCompleted = (id: number) => {
-    todos.map((todo: any) => {
+    todos.forEach((todo: any) => {
       if (todo.id === id) {
         const data = { visible: !todo.visible };
         axiosWithAuth()
@@ -51,7 +51,7 @@ const TodoList: React.FC = () => {
   };
 
   const resetAll = () => {
-    todos.map((todo: any) => {
+    todos.forEach((todo: any) => {
       const data = { visible: false, completed: false };
       axiosWithAuth()
         .put(`${env.API_URL}api/todo/${todo.id}`, data)

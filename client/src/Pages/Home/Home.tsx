@@ -9,6 +9,7 @@ import env from "ts-react-dotenv";
 import HomePortrait from "./HomePortrait";
 import Oops from "../../Context/Oops";
 import Loading from "../../Context/Loading";
+import Burger from "../../Nav/Burger";
 
 function Home() {
   const token = localStorage.getItem("token");
@@ -32,9 +33,15 @@ function Home() {
 
   return token ? (
     error ? (
-      <Oops />
+      <>
+        <Burger />
+        <Oops />
+      </>
     ) : loading ? (
-      <Loading />
+      <>
+        <Burger />
+        <Loading />
+      </>
     ) : (
       <HomePortrait pics={pics} />
     )
