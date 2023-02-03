@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { userState } from "../../Atoms/UserState";
+import { dayState } from "../../Atoms/DayState";
 
 import PageTemp from "../../Context/PageTemp";
 import Oops from "../../Context/Oops";
@@ -24,7 +25,7 @@ function Tasks() {
   const [error, setError] = useState<boolean>(false);
   const [opening, setOpening] = useState<TaskData[]>([]);
   const [closing, setClosing] = useState<TaskData[]>([]);
-  const [choice, setChoice] = useState<boolean>(false);
+  const [day, setDay] = useRecoilState(dayState);
   const user = useRecoilValue(userState);
 
   useEffect(() => {
@@ -53,10 +54,10 @@ function Tasks() {
       .catch((err) => {
         setError(true);
       });
-  }, [choice]);
+  }, [day]);
 
   const handleClick = () => {
-    setChoice(!choice);
+    setDay(!day);
   };
 
   return (
@@ -66,8 +67,8 @@ function Tasks() {
           <Oops />
         ) : (
           <>
-            <Toggle toggled={choice} onClick={handleClick} />
-            {choice ? (
+            <Toggle toggled={day} onClick={handleClick} />
+            {day ? (
               <>
                 {closing.map((item) => {
                   return (
