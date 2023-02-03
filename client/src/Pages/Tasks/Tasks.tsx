@@ -48,7 +48,7 @@ function Tasks() {
       .catch((err) => {
         setError(true);
       });
-  }, []);
+  }, [choice]);
 
   const handleClick = () => {
     setChoice(!choice);
@@ -68,6 +68,7 @@ function Tasks() {
                   return (
                     <TaskCard
                       key={item.id}
+                      id={item.id}
                       task={item.task}
                       shift={item.shift}
                       notes={item.notes}
@@ -83,6 +84,7 @@ function Tasks() {
                   return (
                     <TaskCard
                       key={item.id}
+                      id={item.id}
                       task={item.task}
                       shift={item.shift}
                       notes={item.notes}

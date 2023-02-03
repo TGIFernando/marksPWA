@@ -16,8 +16,11 @@ export const Task = styled.h1`
   font-size: 2rem;
 `;
 
-export const Initials = styled.h2`
+export const Initials = styled.input`
   font-size: 2rem;
+  width: 5rem;
+  text-align: center;
+  border: none;
 `;
 
 export const Card = styled.div`
