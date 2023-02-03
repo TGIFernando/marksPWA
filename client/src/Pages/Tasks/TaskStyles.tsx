@@ -86,3 +86,12 @@ export const FormGroup = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const TaskContainer = styled.div`
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 0 3rem;
+  /* align-items: center; */
+  /* justify-content: center; */
+`;

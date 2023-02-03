@@ -11,6 +11,7 @@ import Toggle from "../../Context/Toggle";
 
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import env from "ts-react-dotenv";
+import { TaskContainer } from "./TaskStyles";
 
 type TaskData = {
   id: number;
@@ -69,7 +70,7 @@ function Tasks() {
           <>
             <Toggle toggled={day} onClick={handleClick} />
             {day ? (
-              <>
+              <TaskContainer>
                 {closing.map((item) => {
                   return (
                     <TaskCard
@@ -83,9 +84,9 @@ function Tasks() {
                     />
                   );
                 })}
-              </>
+              </TaskContainer>
             ) : (
-              <>
+              <TaskContainer>
                 {opening.map((item) => {
                   return (
                     <TaskCard
@@ -99,7 +100,7 @@ function Tasks() {
                     />
                   );
                 })}
-              </>
+              </TaskContainer>
             )}
             {user.admin ? (
               <>
