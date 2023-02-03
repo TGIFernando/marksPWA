@@ -74,3 +74,15 @@ export const FormInput = styled.input`
   min-width: 25rem;
   min-height: 2.5rem;
 `;
+
+export const Icon = styled.div`
+  /* border: 2px solid red; */
+  font-size: 2rem;
+  padding: 0 1rem;
+`;
+
+export const FormGroup = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

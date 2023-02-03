@@ -34,7 +34,7 @@ function TodoListUser() {
   }, []);
 
   const toggleCompleted = (id: number) => {
-    todos.map((todo) => {
+    todos.forEach((todo) => {
       if (todo.id === id) {
         const data = { completed: !todo.completed };
         axiosWithAuth()

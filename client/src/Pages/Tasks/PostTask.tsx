@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
+import env from "ts-react-dotenv";
+
 import { IoAddCircleSharp } from "react-icons/io5";
 import { Big, TaskForm, Label, FormInput } from "./TaskStyles";
-import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
-import { Navigate } from "react-router-dom";
-import env from "ts-react-dotenv";
 
 type FormProps = {
   task: string;
@@ -16,8 +16,6 @@ type FormProps = {
 function PostTask() {
   const [choice, setChoice] = useState<boolean>(false);
   const [formState, setFormState] = useState<FormProps[]>([]);
-  const [hasSubmitBeenClicked, setHasSubmitBeenClicked] =
-    useState<boolean>(false);
 
   const onChange = (e: any) => {
     const { checked, name, type, value } = e.target;
@@ -32,7 +30,6 @@ function PostTask() {
       .then((res) => {
         console.log(res);
         setChoice(false);
-        setHasSubmitBeenClicked(true);
       })
       .catch((err) => {
         console.log(err.message);
