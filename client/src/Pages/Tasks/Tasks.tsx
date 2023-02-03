@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useRecoilValue } from "recoil";
+import { userState } from "../../Atoms/UserState";
+
 import PageTemp from "../../Context/PageTemp";
 import Oops from "../../Context/Oops";
 import TaskCard from "./TaskCard";
+import PostTask from "./PostTask";
 import Toggle from "../../Context/Toggle";
 
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
@@ -21,6 +25,7 @@ function Tasks() {
   const [opening, setOpening] = useState<TaskData[]>([]);
   const [closing, setClosing] = useState<TaskData[]>([]);
   const [choice, setChoice] = useState<boolean>(false);
+  const user = useRecoilValue(userState);
 
   useEffect(() => {
     axiosWithAuth()
@@ -94,6 +99,13 @@ function Tasks() {
                   );
                 })}
               </>
+            )}
+            {user.admin ? (
+              <>
+                <PostTask />
+              </>
+            ) : (
+              <></>
             )}
           </>
         )
