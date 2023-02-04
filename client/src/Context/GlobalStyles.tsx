@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Background = styled.div`
   background-color: #0d060f;
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
 `;
 
 export const MainDiv = styled.div`
@@ -12,5 +12,6 @@ export const MainDiv = styled.div`
   justify-content: center;
   align-items: space-around;
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
+  /* border: 2px solid red; */
 `;

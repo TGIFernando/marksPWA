@@ -11,7 +11,7 @@ import Toggle from "../../Context/Toggle";
 
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import env from "ts-react-dotenv";
-import { TaskContainer } from "./TaskStyles";
+import { TaskContainer, MainDiv } from "./TaskStyles";
 
 type TaskData = {
   id: number;
@@ -67,7 +67,7 @@ function Tasks() {
         error ? (
           <Oops />
         ) : (
-          <>
+          <MainDiv>
             <Toggle toggled={day} onClick={handleClick} />
             {day ? (
               <TaskContainer>
@@ -109,7 +109,7 @@ function Tasks() {
             ) : (
               <></>
             )}
-          </>
+          </MainDiv>
         )
       }
     />

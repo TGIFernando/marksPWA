@@ -105,7 +105,26 @@ html {
   position: fixed;
   cursor: pointer;
   bottom: 1%;
-  left: 82.8%;
+  left: 80%;
+}
+
+@media (max-width: 999px) {
+  .toggle {
+    left: 73%;
+  }
+}
+
+@media (max-width: 750px) {
+  .toggle {
+    left: 60%;
+  }
+}
+
+@media (max-width: 360px) {
+  .toggle {
+    left: 44%;
+    bottom: 3%;
+  }
 }
 
 .toggle.night {

@@ -55,8 +55,8 @@ export const TaskForm = styled.form<Props>`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  min-width: 50rem;
-  min-height: 15rem;
+  min-width: 30rem;
+  min-height: 20rem;
   bottom: 14%;
   left: 3%;
   opacity: 0;
@@ -94,4 +94,8 @@ export const TaskContainer = styled.div`
   padding: 1.5rem 0 0 3rem;
   /* align-items: center; */
   /* justify-content: center; */
+`;
+
+export const MainDiv = styled.div`
+  /* border: 2px solid red; */
 `;
