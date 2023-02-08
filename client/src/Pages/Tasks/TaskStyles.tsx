@@ -55,7 +55,7 @@ export const FormGroup = styled.div`
 
 export const Big = styled.h1<Props>`
   font-size: 10rem;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   /* border: 2px solid red; */
   ${({ choice }) => ({
