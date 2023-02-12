@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../../Utility/AxiosWithAuth";
 import env from "ts-react-dotenv";
+import { useRecoilValue } from "recoil";
+import { dayState } from "../../Atoms/DayState";
 
 import { IoAddCircleSharp } from "react-icons/io5";
-import { Big, TaskForm, Label, FormInput } from "./TaskStyles";
+import { VscDebugRestart } from "react-icons/vsc";
+import {
+  Big,
+  TaskForm,
+  Label,
+  FormInput,
+  RestartContainer,
+} from "./TaskStyles";
 
 type FormProps = {
   task: string;
@@ -16,6 +25,8 @@ type FormProps = {
 function PostTask() {
   const [choice, setChoice] = useState<boolean>(false);
   const [formState, setFormState] = useState<FormProps[]>([]);
+  const shift = useRecoilValue(dayState) ? "closing" : "opening";
+  const [click, setClick] = useState<boolean>(false);
 
   const onChange = (e: any) => {
     const { checked, name, type, value } = e.target;
@@ -30,6 +41,18 @@ function PostTask() {
       .then((res) => {
         console.log(res);
         setChoice(false);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+  const handleResetInitials = (e: any) => {
+    axiosWithAuth()
+      .put(`${env.API_URL}api/tasks/initials/${shift}`)
+      .then((res) => {
+        console.log(res.data);
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err.message);
@@ -72,6 +95,9 @@ function PostTask() {
             onChange={onChange}
           />
           <input type="submit" onClick={handleSubmit} />
+          <RestartContainer click={click} onClick={handleResetInitials}>
+            <VscDebugRestart onClick={() => setClick(!click)} />
+          </RestartContainer>
         </TaskForm>
       </>
     </div>
