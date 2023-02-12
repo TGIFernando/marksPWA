@@ -66,7 +66,7 @@ export const Big = styled.h1<Props>`
 
 export const TaskForm = styled.form<Props>`
   background-color: #bba0ca;
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
