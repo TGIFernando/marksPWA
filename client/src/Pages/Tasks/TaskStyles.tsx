@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Props {
   choice: boolean;
+  click: boolean;
 }
 
 export const List = styled.ol`
@@ -53,7 +54,7 @@ export const FormGroup = styled.div`
 
 /// Post Task Card
 
-export const Big = styled.h1<Props>`
+export const Big = styled.h1<Pick<Props, "choice">>`
   font-size: 10rem;
   position: fixed;
   bottom: 0;
@@ -64,9 +65,9 @@ export const Big = styled.h1<Props>`
   })}
 `;
 
-export const TaskForm = styled.form<Props>`
+export const TaskForm = styled.form<Pick<Props, "choice">>`
   background-color: #bba0ca;
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,4 +108,16 @@ export const TaskContainer = styled.div`
 
 export const MainDiv = styled.div`
   /* border: 2px solid red; */
+`;
+
+export const RestartContainer = styled.div<Pick<Props, "click">>`
+  /* border: 2px solid red; */
+  font-size: 2rem;
+  position: absolute;
+  right: 5%;
+  bottom: 0%;
+  ${({ click }) => ({
+    // transition: `.3s`,
+    transform: click ? `rotate(360deg)` : `rotate(360deg)`,
+  })}
 `;
