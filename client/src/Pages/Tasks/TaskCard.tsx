@@ -31,6 +31,18 @@ function TaskCard(props: any) {
     }
   };
 
+  const handleUnfocus = (e: any) => {
+    const changes = { initials: initials };
+    axiosWithAuth()
+      .put(`${env.API_URL}api/tasks/${props.id}`, changes)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   const handleDoubleClick = useDoubleTap(() => {
     setDoubleClick(!doubleClick);
   });
@@ -60,6 +72,7 @@ function TaskCard(props: any) {
                 value={initials}
                 onChange={handleInitials}
                 onKeyDown={handleSubmit}
+                onBlur={handleUnfocus}
                 placeholder={initials}
               />
             </>
@@ -70,6 +83,7 @@ function TaskCard(props: any) {
                 name="formInitials"
                 placeholder="___"
                 onChange={handleInitials}
+                onBlur={handleUnfocus}
                 onKeyDown={handleSubmit}
               />
             </>
