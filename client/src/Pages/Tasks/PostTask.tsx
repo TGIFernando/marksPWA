@@ -94,7 +94,7 @@ function PostTask() {
             value="closing"
             onChange={onChange}
           />
-          <input type="submit" onClick={handleSubmit} />
+          <button onClick={handleSubmit}>Submit</button>
           <RestartContainer click={click} onClick={handleResetInitials}>
             <VscDebugRestart onClick={() => setClick(!click)} />
           </RestartContainer>
