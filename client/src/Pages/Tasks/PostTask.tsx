@@ -34,9 +34,9 @@ function PostTask() {
     setFormState({ ...formState, [name]: valueToUse });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     console.log(formState);
-    axiosWithAuth()
+    await axiosWithAuth()
       .post(`${env.API_URL}api/tasks`, formState)
       .then((res) => {
         console.log(res);
@@ -47,8 +47,8 @@ function PostTask() {
       });
   };
 
-  const handleResetInitials = (e: any) => {
-    axiosWithAuth()
+  const handleResetInitials = async (e: any) => {
+    await axiosWithAuth()
       .put(`${env.API_URL}api/tasks/initials/${shift}`)
       .then((res) => {
         console.log(res.data);
