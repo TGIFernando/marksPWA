@@ -65,40 +65,44 @@ function PostTask() {
         <Big choice={choice} onClick={() => setChoice(!choice)}>
           <IoAddCircleSharp color="#87255b" />
         </Big>
-        <TaskForm choice={choice}>
-          <Label htmlFor="task">Task </Label>
-          <FormInput
-            type="text"
-            name="task"
-            placeholder="Do something"
-            onChange={onChange}
-          />
-          <Label htmlFor="notes">Notes </Label>
-          <FormInput
-            type="text"
-            name="notes"
-            placeholder="Do something"
-            onChange={onChange}
-          />
-          <Label htmlFor="shift">Opening </Label>
-          <input
-            type="radio"
-            name="shift"
-            value="opening"
-            onChange={onChange}
-          />
-          <Label htmlFor="shift">Closing </Label>
-          <input
-            type="radio"
-            name="shift"
-            value="closing"
-            onChange={onChange}
-          />
-          <button onClick={handleSubmit}>Submit</button>
-          <RestartContainer click={click} onClick={handleResetInitials}>
-            <VscDebugRestart onClick={() => setClick(!click)} />
-          </RestartContainer>
-        </TaskForm>
+        {choice ? (
+          <TaskForm choice={choice}>
+            <Label htmlFor="task">Task </Label>
+            <FormInput
+              type="text"
+              name="task"
+              placeholder="Do something"
+              onChange={onChange}
+            />
+            <Label htmlFor="notes">Notes </Label>
+            <FormInput
+              type="text"
+              name="notes"
+              placeholder="Do something"
+              onChange={onChange}
+            />
+            <Label htmlFor="shift">Opening </Label>
+            <input
+              type="radio"
+              name="shift"
+              value="opening"
+              onChange={onChange}
+            />
+            <Label htmlFor="shift">Closing </Label>
+            <input
+              type="radio"
+              name="shift"
+              value="closing"
+              onChange={onChange}
+            />
+            <button onClick={handleSubmit}>Submit</button>
+            <RestartContainer click={click} onClick={handleResetInitials}>
+              <VscDebugRestart onClick={() => setClick(!click)} />
+            </RestartContainer>
+          </TaskForm>
+        ) : (
+          <></>
+        )}
       </>
     </div>
   );
